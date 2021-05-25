@@ -5,6 +5,7 @@ import de.leonhard.storage.LightningBuilder;
 import de.leonhard.storage.internal.settings.ConfigSettings;
 import de.leonhard.storage.internal.settings.DataType;
 import de.leonhard.storage.internal.settings.ReloadSettings;
+import me.noahvdaa.ubalance.command.UBalanceCommand;
 import me.noahvdaa.ubalance.listeners.PlayerEvents;
 import me.noahvdaa.ubalance.model.TargetServer;
 import me.noahvdaa.ubalance.model.VirtualServer;
@@ -39,6 +40,9 @@ public class UBalance extends Plugin {
 
 		// Register events.
 		getProxy().getPluginManager().registerListener(this, new PlayerEvents(this));
+
+		// Register commands
+		getProxy().getPluginManager().registerCommand(this, new UBalanceCommand(this));
 
 		// Ping servers to check if they're up.
 		getProxy().getScheduler().schedule(this, () -> ScheduledTaskUtils.processServerPings(instance), 1, 1, TimeUnit.SECONDS);

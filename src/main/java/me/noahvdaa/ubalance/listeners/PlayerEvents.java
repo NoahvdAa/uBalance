@@ -27,9 +27,8 @@ public class PlayerEvents implements Listener {
 		if (virtualServer == null) return;
 		// Fetch candidate servers.
 		List<TargetServer> candidates = virtualServer.getAvailableTargetServers(plugin, e.getPlayer());
-
 		// No candidates found.
-		if(candidates.size() == 0){
+		if (candidates.size() == 0) {
 			e.getPlayer().disconnect(ChatUtil.colorizeAsComponent(plugin.getConfig().getString("General.NoAvailableServersMessage")));
 			return;
 		}
